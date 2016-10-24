@@ -1,0 +1,13 @@
+header {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#333, #999);
+  h1 {
+    color: white;
+    font-size: 40px;
+    font-family: Arial, sans-serif;
+  }
+}

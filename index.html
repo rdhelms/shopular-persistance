@@ -1,19 +1,48 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="shopular">
 
 <head>
     <meta charset='UTF-8'>
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title></title>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Shopular</title>
+    <link rel="shortcut icon" href="images/bluecircle.png" type="image/x-icon">
+    <link rel="icon" href="bluecircle.png" type="image/x-icon">
     <link rel="stylesheet" href="lib/styles/main.min.css">
 </head>
 
-<body>
-    <div class="container"></div>
+<body ng-controller="InventoryController as inv">
+    <header ng-click="inv.selectedItem = null">
+      <h1>{{inv.storeName}}</h1>
+    </header>
+
+    <main>
+      <ul class="itemList">
+        <ul class="itemInfo listTitle" ng-click="inv.selectedItem = null">
+          <li class="name">Name</li>
+          <li class="price">Price</li>
+          <li class="quantity">Quantity</li>
+          <li class="color">Color</li>
+        </ul>
+        <ul class="itemInfo item" ng-repeat="item in inv.items | orderBy: '-price'" ng-click="inv.changeSelected(item)">
+            <li ng-hide="inv.selectedItem === item" class="name">{{item.name}}</li>
+            <input ng-model="item.name" ng-show="inv.selectedItem === item" class="name" value="{{item.name}}">
+            <li ng-hide="inv.selectedItem === item" class="price">${{inv.totalPrice(item)}}<img ng-show="item.discount > 0" src="../../images/sale-tag.png"></li>
+            <input ng-model="item.price" ng-show="inv.selectedItem === item" class="price" value="{{item.price}}">
+            <li ng-hide="inv.selectedItem === item" class="quantity">{{item.quantity}}</li>
+            <input ng-model="item.quantity" ng-show="inv.selectedItem === item" class="quantity" value="{{item.quantity}}">
+            <li ng-hide="inv.selectedItem === item" class="color">{{item.color}}</li>
+            <input ng-model="item.color" ng-show="inv.selectedItem === item" class="color" value="{{item.color}}">
+        </ul>
+      </ul>
+    </main>
+
+    <footer ng-click="inv.selectedItem = null">
+      <a name="about" href="#about" class="about">About</a>
+      <a name="contact" href="#contact" class="contact">Contact Us</a>
+    </footer>
 
     <script src="lib/js/vendor.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="lib/js/app.js"></script>
 </body>
 

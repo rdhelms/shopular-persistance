@@ -1,0 +1,61 @@
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  background: url('../../../images/subtle-noise.png');
+}
+
+.itemList {
+  width: 80%;
+  border: 2px solid black;
+
+  .listTitle {
+    background: lightblue;
+  }
+
+  .item {
+    &:nth-child(odd) {
+      background: beige;
+    }
+    &:nth-child(even) {
+      background: white;
+    }
+  }
+
+  .itemInfo {
+    display: flex;
+    position: relative;
+    form {
+      display: flex;
+      width: 100%;
+    }
+    li, input {
+      position: relative;
+      padding: $vspace $hspace;
+      border: 1px solid gray;
+      width: 25%;
+      font-size: 20px;
+      font-family: Arial, sans-serif;
+      img {
+        position: absolute;
+        top: 50%;
+        right: $hspace;
+        transform: translate(0, -50%);
+      }
+    }
+    button {
+      position: absolute;
+      right: 0;
+      border: 1px solid gray;
+      height: 100%;
+      font-size: 20px;
+      font-family: Arial, sans-serif;
+    }
+    input {
+      z-index: 10;
+        outline: 3px solid blue;
+        box-shadow: 0 0 10px black;
+    }
+  }
+}
