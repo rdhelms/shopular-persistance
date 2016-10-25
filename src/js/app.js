@@ -94,18 +94,9 @@
             this.tax = ( 5.75 / 100 );
 
             this.totalPrice = function(item) {
-              // Format price to include commas for larger numbers.
-              var unformatPrice = (item.price * (1 + this.tax) - item.discount).toFixed(2);
-              var dollars = unformatPrice.slice(0, -3);
-              var cents = unformatPrice.slice(-2)
-              var numCommas = Math.floor((dollars.length - 1) / 3);
-              dollars = dollars.split('').reverse().join('');
-              for (var commaCount = 1; commaCount <= numCommas; commaCount++) {
-                dollars = dollars.slice(0, commaCount*3 + (commaCount - 1)) + "," + dollars.slice(commaCount*3 + (commaCount - 1));
-              }
-              dollars = dollars.split('').reverse().join('');
-              return dollars + "." + cents;
-            }
+              return (item.price * (1 + this.tax) - item.discount);
+            };
+            
 
             this.changeSelected = function(item) {
               this.selectedItem = item;
