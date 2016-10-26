@@ -1,3 +1,3 @@
 # Shopular
 
-https://rdhelms.github.io/shopular/
+https://rdhelms.github.io/shopular-editing/
