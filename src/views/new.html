@@ -1,0 +1,22 @@
+<div class="newItemInfo">
+  <button ng-click="newInv.resetInv()" class="clearInvBtn">Clear Inventory</button>
+  <button ng-click="newInv.getInit()" class="initInvBtn">Get Initial Inventory</button>
+  <h1>Add new item:</h1>
+  <form novalidate name="newItemForm" ng-submit="newItemForm.$valid && newInv.addNew()">
+    <div class="inputLabels">
+      <label for="name">Name</label>
+      <label for="price">Price</label>
+      <label for="quantity">Quantity</label>
+      <label for="color">Color</label>
+      <label for="discount">Discount</label>
+    </div>
+    <div class="newInputs">
+      <input ng-required="true" ng-model="newInv.newItem.name" placeholder="name" type="text">
+      <input ng-required="true" ng-model="newInv.newItem.price" placeholder="price" type="number">
+      <input ng-required="true" ng-model="newInv.newItem.quantity" placeholder="quantity" type="number">
+      <input ng-required="true" ng-model="newInv.newItem.color" placeholder="color" type="text">
+      <input ng-required="true" ng-model="newInv.newItem.discount" placeholder="discount" type="number">
+    </div>
+    <button ng-disabled="newItemForm.$invalid">Add Item</button>
+  </form>
+</div>

@@ -1,9 +1,13 @@
 main {
   width: 100%;
+  background: url('../../images/subtle-noise.png');
+}
+
+ui-view {
+  width: 100%;
   display: flex;
   justify-content: center;
   padding: 50px 0;
-  background: url('../../images/subtle-noise.png');
 }
 
 .itemList {
@@ -11,15 +15,36 @@ main {
   border: 2px solid black;
 
   .listTitle {
-    background: lightblue;
+    li {
+      background: lightblue;
+      color: black;
+      transition: all .3s ease;
+    }
+    li:hover {
+      display: flex;
+      justify-content: space-between;
+      z-index: 10;
+      background: navy;
+      color: white;
+      transition: all .3s ease;
+      &:after {
+        content: '(sort by)';
+      }
+    }
   }
 
   .item {
     &:nth-child(odd) {
       background: beige;
+      input {
+        background: beige;
+      }
     }
     &:nth-child(even) {
       background: white;
+      input {
+        background: white;
+      }
     }
   }
 
@@ -30,7 +55,7 @@ main {
       display: flex;
       width: 100%;
     }
-    li, input {
+    li, input, .price {
       position: relative;
       padding: $vspace $hspace;
       border: 1px solid gray;
@@ -44,18 +69,25 @@ main {
         transform: translate(0, -50%);
       }
     }
+    input:focus {
+      z-index: 10;
+      outline: 3px solid blue;
+      box-shadow: 0 0 10px black;
+    }
     button {
       position: absolute;
-      right: 0;
+      width: 75px;
+      right: -100px;
+      background: lightgreen;
       border: 1px solid gray;
+      border-radius: 5px;
       height: 100%;
-      font-size: 20px;
+      font-size: 15px;
       font-family: Arial, sans-serif;
-    }
-    input {
-      z-index: 10;
-        outline: 3px solid blue;
-        box-shadow: 0 0 10px black;
+      transition: all 2s ease;
+      &:disabled {
+        cursor: not-allowed;
+      }
     }
   }
 }

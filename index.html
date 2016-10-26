@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="shopular">
+<html lang="en">
 
 <head>
     <meta charset='UTF-8'>
@@ -10,40 +10,33 @@
     <link rel="stylesheet" href="lib/styles/main.min.css">
 </head>
 
-<body ng-controller="InventoryController as inv">
-    <header ng-click="inv.selectedItem = null">
-      <h1>{{inv.storeName}}</h1>
+<body ng-app="shopular">
+    <header>
+      <h1>Inventories R Us</h1>
+      <div class="header-links">
+        <a ui-sref="inv.list">View All Items</a>
+        <a ui-sref="inv.new">Manage Inventory</a>
+      </div>
     </header>
 
     <main>
-      <ul class="itemList">
-        <ul class="itemInfo listTitle" ng-click="inv.selectedItem = null">
-          <li class="name">Name</li>
-          <li class="price">Price</li>
-          <li class="quantity">Quantity</li>
-          <li class="color">Color</li>
-        </ul>
-        <ul class="itemInfo item" ng-repeat="item in inv.items | orderBy: '-price'" ng-click="inv.changeSelected(item)">
-            <li ng-hide="inv.selectedItem === item" class="name">{{item.name}}</li>
-            <input ng-model="item.name" ng-show="inv.selectedItem === item" class="name" value="{{item.name}}">
-            <li ng-hide="inv.selectedItem === item" class="price">{{inv.totalPrice(item) | currency}}<img ng-show="item.discount > 0" src="images/sale-tag.png"></li>
-            <input ng-model="item.price" ng-show="inv.selectedItem === item" class="price" value="{{item.price}}">
-            <li ng-hide="inv.selectedItem === item" class="quantity">{{item.quantity}}</li>
-            <input ng-model="item.quantity" ng-show="inv.selectedItem === item" class="quantity" value="{{item.quantity}}">
-            <li ng-hide="inv.selectedItem === item" class="color">{{item.color}}</li>
-            <input ng-model="item.color" ng-show="inv.selectedItem === item" class="color" value="{{item.color}}">
-        </ul>
-      </ul>
+      <ui-view></ui-view>
     </main>
 
-    <footer ng-click="inv.selectedItem = null">
+    <footer>
       <a name="about" href="#about" class="about">About</a>
       <a name="contact" href="#contact" class="contact">Contact Us</a>
     </footer>
 
-    <script src="lib/js/vendor.min.js"></script>
+    <!-- <script src="lib/js/vendor.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="lib/js/app.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"> </script>
+    <script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"> </script>
+    <script src="src/js/app.js"></script>
+    <script src="src/js/items.factory.js"> </script>
+    <script src="src/js/items.service.js"> </script>
+    <script src="src/js/list-items-controller.js"> </script>
+    <script src="src/js/new-item-controller.js"> </script>
 </body>
 
 
