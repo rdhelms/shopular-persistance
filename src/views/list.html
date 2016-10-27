@@ -6,11 +6,11 @@
     <li ng-click="listInv.sortBy('color')" class="color"><span>Color</span></li>
   </ul>
   <form novalidate name="editItemForm" class="itemInfo item" ng-repeat="item in listInv.items | orderBy: listInv.sortOrder : listInv.sortReverse" ng-submit="editItemForm.$valid && listInv.updateItem(item)" ng-click="listInv.startEditing(item)">
-      <input ng-required="true" ng-model="item.name" class="name" type="text">
-      <span class="price" ng-hide="item.editing">{{item.totalPrice | currency}}</span>
-      <input ng-show="item.editing" ng-required="true" ng-model="item.price" class="price" type="number">
-      <input ng-required="true" ng-model="item.quantity" class="quantity" type="number">
-      <input ng-required="true" ng-model="item.color" class="color" type="text">
-      <button ng-disabled="editItemForm.$invalid" ng-show="item.editing">Save Change</button>
+    <input ng-required="true" ng-model="item.name" class="name" type="text">
+    <span class="price" ng-hide="item.editing">{{item.totalPrice | currency}}</span>
+    <input ng-show="item.editing" ng-required="true" ng-model="item.price" class="price" type="number">
+    <input ng-required="true" ng-model="item.quantity" class="quantity" type="number">
+    <input ng-required="true" ng-model="item.color" class="color" type="text">
+    <button ng-disabled="editItemForm.$invalid" ng-show="item.editing">Save Change</button>
   </form>
 </div>

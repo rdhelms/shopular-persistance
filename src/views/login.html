@@ -1,0 +1,8 @@
+<div class="loginContainer">
+  <form class="loginForm" name="loginForm" ng-submit="loginForm.$valid && login.newLogin(login.username)">
+    <h1 class="storeName">Inventories R Us</h1>
+    <label for="username">Username:</label>
+    <input id="username" ng-model="login.username" placeholder="username" ng-required="true">
+    <button>Login</button>
+  </form>
+</div>

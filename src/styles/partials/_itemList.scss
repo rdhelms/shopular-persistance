@@ -1,19 +1,13 @@
 main {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
   background: url('../../images/subtle-noise.png');
 }
 
-ui-view {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 50px 0;
-}
-
 .itemList {
-  width: 80%;
+  margin: 50px 0;
   border: 2px solid black;
-
   .listTitle {
     li {
       background: lightblue;

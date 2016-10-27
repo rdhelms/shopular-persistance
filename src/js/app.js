@@ -6,12 +6,21 @@ angular.module('shopular', ['ui.router', 'LocalStorageModule'])
         url: '/',
         abstract: true,
         template: '<ui-view></ui-view>'
-      }).state('inv.new', {
+      }).state('inv.login', {
         url: '',
+        templateUrl: 'src/views/login.html',
+        controller: 'loginInvCtrl as login'
+      }).state('inv.manage', {
+        url: 'inventory',
+        abstract: true,
+        templateUrl: 'src/views/manage.html',
+        controller: 'loginInvCtrl as login'
+      }).state('inv.manage.new', {
+        url: '/new',
         templateUrl: 'src/views/new.html',
         controller: 'newInvCtrl as newInv'
-      }).state('inv.list', {
-        url: 'list',
+      }).state('inv.manage.list', {
+        url: '/list',
         templateUrl: 'src/views/list.html',
         controller: 'listInvCtrl as listInv'
       });

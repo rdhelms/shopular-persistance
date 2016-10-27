@@ -1,5 +1,4 @@
 angular.module('shopular').controller('newInvCtrl', function(Items, $state) {
-
   this.newItem = {
     name: null,
     price: null,
@@ -11,7 +10,7 @@ angular.module('shopular').controller('newInvCtrl', function(Items, $state) {
   this.addNew = function() {
     console.log(this.newItem);
     Items.create(this.newItem);
-    $state.go('inv.list');
+    $state.go('inv.manage.list');
   }
 
   this.getInit = function() {
@@ -103,11 +102,11 @@ angular.module('shopular').controller('newInvCtrl', function(Items, $state) {
     initItems.forEach(function(item) {
       Items.create(item);
     });
-    $state.go('inv.list');
+    $state.go('inv.manage.list');
   }
 
   this.resetInv = function() {
     Items.reset();
-    $state.go('inv.list');
+    $state.go('inv.manage.list');
   }
 });

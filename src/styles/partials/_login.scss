@@ -1,0 +1,43 @@
+.loginContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#333, #999);
+}
+
+.loginForm {
+  position: relative;
+  width: 20vw;
+  height: 20vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  .storeName {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: -50%;
+    width: 150%;
+    font-family: Arial, sans-serif;
+    font-size: 45px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+  }
+  label {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  input {
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  button {
+    padding: 10px;
+    font-size: 15px;
+  }
+}

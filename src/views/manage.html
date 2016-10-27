@@ -1,0 +1,20 @@
+<header>
+  <div class="welcome">
+    <p>Welcome: {{login.currentUser.username}}</p>
+    <p>Last Login: {{login.currentUser.signInDate}}</p>
+  </div>
+  <h1>Inventories R Us</h1>
+  <div class="header-links">
+    <a ui-sref="inv.manage.list">View All Items</a>
+    <a ui-sref="inv.manage.new">Manage Inventory</a>
+  </div>
+</header>
+
+<main>
+  <ui-view></ui-view>
+</main>
+
+<footer>
+  <a name="about" href="#about" class="about">About</a>
+  <a name="contact" href="#contact" class="contact">Contact Us</a>
+</footer>
